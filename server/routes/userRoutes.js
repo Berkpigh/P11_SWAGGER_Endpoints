@@ -21,4 +21,8 @@ router.put(
 
 router.get('/signout', userController.signOut)
 
+router.post('/account', userController.createAccount)
+
+router.get('/useraccounts', userController.getAccounts)
+
 module.exports = router

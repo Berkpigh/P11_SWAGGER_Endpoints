@@ -1,4 +1,5 @@
 const User = require('../database/models/userModel')
+const Account= require('../database/models/accountModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -90,6 +91,50 @@ module.exports.updateUserProfile = async serviceData => {
     }
 
     return user.toObject()
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}
+
+module.exports.createAccount = async serviceData => {
+  console.log(serviceData)
+  try {
+/*     const account = await Account.findOne({ email: serviceData.email })
+    if (user) {
+      throw new Error('Email already exists')
+    }
+ */
+    //const hashPassword = await bcrypt.hash(serviceData.password, 12)
+
+    const newAccount = new Account({
+      accountId: serviceData.accountId,
+      userId: serviceData.userId,
+      creationDate: serviceData.creationDate,
+      name: serviceData.name,
+      balance: serviceData.balance
+    })
+  console.log(newAccount)
+    let result = await newAccount.save()
+
+    return result
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}
+
+module.exports.getUserAccounts = async serviceData => {
+  try {
+    //const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
+    //const decodedJwtToken = jwt.decode(jwtToken)
+
+    //const userAccounts = await Account.find({ userId: serviceData.userId })
+    const userAccounts = await Account.find()
+    //console.log([userAccounts])
+    console.log(userAccounts)
+
+    return userAccounts
   } catch (error) {
     console.error('Error in userService.js', error)
     throw new Error(error)
