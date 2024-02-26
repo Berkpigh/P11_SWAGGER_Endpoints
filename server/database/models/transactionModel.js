@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb')
 const mongoose = require('mongoose')
 
-const accountSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema({
     accountType: {
         type: Number,
         required: false,
@@ -26,4 +26,4 @@ const accountSchema = new mongoose.Schema({
     },
 }, { timestamps: true })
 
-module.exports = mongoose.model('Account', accountSchema)
+module.exports = mongoose.model('Transaction', transactionSchema)

@@ -25,4 +25,6 @@ router.post('/account', userController.createAccount)
 
 router.get('/useraccounts', userController.getAccounts)
 
+router.get('/getaccount/:id', userController.getOneAccount)
+
 module.exports = router

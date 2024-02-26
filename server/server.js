@@ -19,7 +19,11 @@ app.use(cors())
 
 // Request payload middleware
 app.use(express.json())
+
 app.use(express.urlencoded({ extended: true }))
+
+const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Handle custom routes
 app.use('/api/v1/user', require('./routes/userRoutes'))
