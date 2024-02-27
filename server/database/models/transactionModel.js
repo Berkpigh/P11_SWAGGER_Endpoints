@@ -38,7 +38,7 @@ const transactionSchema = new mongoose.Schema({
         unique: false,
     },
     notes: {
-        type: Number,
+        type: String,
         required: false,
         unique: false,
     },

@@ -1,5 +1,6 @@
 const User = require('../database/models/userModel')
-const Account= require('../database/models/accountModel')
+const Account = require('../database/models/accountModel')
+const Transaction = require('../database/models/transactionModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -98,23 +99,17 @@ module.exports.updateUserProfile = async serviceData => {
 }
 
 module.exports.createAccount = async serviceData => {
-  console.log(serviceData)
+  //console.log(serviceData)
   try {
-/*     const account = await Account.findOne({ email: serviceData.email })
-    if (user) {
-      throw new Error('Email already exists')
-    }
- */
-    //const hashPassword = await bcrypt.hash(serviceData.password, 12)
 
     const newAccount = new Account({
-      accountId: serviceData.accountId,
+      accountType: serviceData.accountType,
       userId: serviceData.userId,
       creationDate: serviceData.creationDate,
       name: serviceData.name,
       balance: serviceData.balance
     })
-  console.log(newAccount)
+    //console.log(newAccount)
     let result = await newAccount.save()
 
     return result
@@ -129,12 +124,10 @@ module.exports.getUserAccounts = async serviceData => {
     //const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
     //const decodedJwtToken = jwt.decode(jwtToken)
     const paramUser = {
-      "userId": serviceData.userId
+      "userId": serviceData.id
     }
-    //console.log(paramUser)
+    console.log('paramUser :',paramUser)
     const userAccounts = await Account.find(paramUser)
-    //const userAccounts = await Account.find()
-    //console.log([userAccounts])
     //console.log(userAccounts)
 
     return userAccounts
@@ -146,11 +139,49 @@ module.exports.getUserAccounts = async serviceData => {
 
 module.exports.getUserAccountById = async serviceData => {
   try {
-    console.log(serviceData)
+    //console.log(serviceData)
     const userAccount = await Account.findById(serviceData.id)
     //console.log(userAccount)
 
     return userAccount
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}
+
+module.exports.createTransaction = async serviceData => {
+  console.log(serviceData)
+  try {
+
+    const newTransaction = new Transaction({
+      accountId: serviceData.accountId,
+      creationDate: serviceData.creationDate,
+      description: serviceData.description,
+      amount: serviceData.amount,
+      balance: serviceData.balance,
+      transactionType: serviceData.transactionType,
+      transactionCategory: serviceData.transactionCategory,
+      notes: serviceData.notes,
+    })
+    console.log(newTransaction)
+    let result = await newTransaction.save()
+
+    return result
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}
+
+module.exports.getOneAccountTransactions = async serviceData => {
+  try {
+    accPar = {
+      "accountId": serviceData.id
+    }
+    console.log('accPar :', accPar)
+    const userAccountTransactions = await Transaction.find(accPar)
+    return userAccountTransactions
   } catch (error) {
     console.error('Error in userService.js', error)
     throw new Error(error)

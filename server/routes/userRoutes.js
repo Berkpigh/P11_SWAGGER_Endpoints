@@ -23,8 +23,12 @@ router.get('/signout', userController.signOut)
 
 router.post('/account', userController.createAccount)
 
-router.get('/useraccounts', userController.getAccounts)
+router.get('/useraccounts/:id', userController.getAccounts)
 
 router.get('/getaccount/:id', userController.getOneAccount)
+
+router.post('/transaction', userController.createTransaction)
+
+router.get('/accountbyid/:id/alltransactions', userController.getOneAccountTransactions)
 
 module.exports = router

@@ -91,7 +91,7 @@ module.exports.createAccount = async (req, res) => {
 }
 
 module.exports.getAccounts = async (req, res) => {
-  console.log(req.body.userId)
+  console.log('req.params :', req.params)
   // if (req.userId !== req.params.userId) {
   //   return next(errorHandler(401, 'You can get only your accounts !'));
   // }
@@ -99,10 +99,11 @@ module.exports.getAccounts = async (req, res) => {
   let response = {}
 
   try {
-    const responseFromService = await userService.getUserAccounts(req.body)
+    const responseFromService = await userService.getUserAccounts(req.params)
     response.status = 200
     response.message = 'Successfully got user accounts'
     response.body = responseFromService
+    console.log('response :',response)
   } catch (error) {
     console.log('Error in userController.js')
     response.status = 400
@@ -134,4 +135,37 @@ module.exports.getOneAccount = async (req, res) => {
   }
 
   return res.status(response.status).send(response)
+}
+
+module.exports.createTransaction = async (req, res) => {
+  let response = {}
+
+  try {
+    const responseFromService = await userService.createTransaction(req.body)
+    response.status = 200
+    response.message = 'Transaction successfully created'
+    response.body = responseFromService
+  } catch (error) {
+    console.error('Something went wrong in userController.js when creating transaction', error)
+    response.status = 400
+    response.message = error.message
+  }
+
+  return res.status(response.status).send(response)
+}
+
+module.exports.getOneAccountTransactions = async (req, res) => {
+  let response = {}
+
+  try {
+    const responseFromService = await userService.getOneAccountTransactions(req.params)
+    response.status = 200
+    response.message = 'Successfully got user account transactions'
+    response.body = responseFromService
+    console.log('response :',response)
+  } catch (error) {
+    console.log('Error in userController.js')
+    response.status = 400
+    response.message = error.message
+  }
 }
