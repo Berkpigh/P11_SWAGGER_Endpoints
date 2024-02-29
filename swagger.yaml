@@ -218,9 +218,37 @@ paths:
         - application/json
       responses:
         '200':
-          description: Accounts got Successfully
+          description: Transactions got Successfully
           schema:
             $ref: '#/definitions/UserAccountTransactions'
+        '400':
+          description: Invalid Field
+        '500':
+          description: Internal Server Error
+  /user/account/{:acctid}/transaction/{:tranid}:
+    get:
+      tags:
+        - User Account Transactions Module
+      summary: Get one user account's particular transaction
+      description: API for getting one user account's particular transaction
+      parameters:
+        - type: string
+          in: path
+          name: acctid
+          description: User Account ID
+          required: true
+        - type: string
+          in: path
+          name: tranid
+          description: Transaction ID
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction got Successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
         '400':
           description: Invalid Field
         '500':
@@ -429,5 +457,4 @@ definitions:
                   type: number
             notes: 
                   type: string
-
 
