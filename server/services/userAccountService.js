@@ -40,8 +40,8 @@ module.exports.getUserAccounts = async serviceData => {
   
   module.exports.getUserAccountById = async serviceData => {
     try {
-      //console.log(serviceData)
-      const userAccount = await Account.findById(serviceData.id)
+      console.log(serviceData)
+      const userAccount = await Account.find(serviceData)
       //console.log(userAccount)
   
       return userAccount
