@@ -156,19 +156,24 @@ paths:
       summary: Get user's account
       description: API for getting user's account
       parameters:
+        - type: string
+          in: path
+          name: id
+          description: User Account ID
+          required: true
         - in: body
           name: body
           description: Account creation Payload
           required: true
           schema:
-            $ref: '#/definitions/Account'
+            $ref: '#/definitions/UserAccount'
       produces:
         - application/json
       responses:
         '200':
-          description: Account created Successfully
+          description: Account got Successfully
           schema:
-            $ref: '#/definitions/AccountsResponse'
+            $ref: '#/definitions/AccountResponse'
         '400':
           description: Invalid Field
         '500':
