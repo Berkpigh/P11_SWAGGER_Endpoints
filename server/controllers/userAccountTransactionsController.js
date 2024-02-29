@@ -35,4 +35,24 @@ module.exports.createTransaction = async (req, res) => {
   
     return res.status(response.status).send(response)
   }
+    
+  module.exports.getOneTransaction = async (req, res) => {
+    let response = {}
+    const paramTransaction = {
+      _id: req.params.tranid,
+      accountId: req.params.acctid
+    }
+    try {
+      const responseFromService = await userAcctTranService.getOneTransaction(paramTransaction)
+      response.status = 200
+      response.message = 'Successfully got user a particular account transaction'
+      response.body = responseFromService
+      //console.log('response :',response)
+    } catch (error) {
+      console.log('Error in userController.js')
+      response.status = 400
+      response.message = error.message
+    }
   
+    return res.status(response.status).send(response)
+  }

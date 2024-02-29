@@ -36,17 +36,13 @@ module.exports.getOneAccountTransactions = async serviceData => {
       throw new Error(error)
     }
 }
-/*   
-module.exports.getUserAccountById = async serviceData => {
-    try {
-      console.log(serviceData)
-      const userAccount = await Account.find(serviceData)
-      //console.log(userAccount)
-  
-      return userAccount
-    } catch (error) {
-      console.error('Error in userService.js', error)
-      throw new Error(error)
-    }
-} */
-  
+module.exports.getOneTransaction = async serviceData => {
+  try {
+    console.log('serviceData :',serviceData)
+    const userAccountTransaction = await Transaction.find(serviceData)
+    return userAccountTransaction
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}
