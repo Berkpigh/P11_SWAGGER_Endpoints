@@ -98,58 +98,6 @@ module.exports.updateUserProfile = async serviceData => {
   }
 }
 
-module.exports.createAccount = async serviceData => {
-  //console.log(serviceData)
-  try {
-
-    const newAccount = new Account({
-      accountType: serviceData.accountType,
-      userId: serviceData.userId,
-      creationDate: serviceData.creationDate,
-      name: serviceData.name,
-      balance: serviceData.balance
-    })
-    //console.log(newAccount)
-    let result = await newAccount.save()
-
-    return result
-  } catch (error) {
-    console.error('Error in userService.js', error)
-    throw new Error(error)
-  }
-}
-
-module.exports.getUserAccounts = async serviceData => {
-  try {
-    //const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
-    //const decodedJwtToken = jwt.decode(jwtToken)
-    const paramUser = {
-      "userId": serviceData.id
-    }
-    console.log('paramUser :',paramUser)
-    const userAccounts = await Account.find(paramUser)
-    //console.log(userAccounts)
-
-    return userAccounts
-  } catch (error) {
-    console.error('Error in userService.js', error)
-    throw new Error(error)
-  }
-}
-
-module.exports.getUserAccountById = async serviceData => {
-  try {
-    //console.log(serviceData)
-    const userAccount = await Account.findById(serviceData.id)
-    //console.log(userAccount)
-
-    return userAccount
-  } catch (error) {
-    console.error('Error in userService.js', error)
-    throw new Error(error)
-  }
-}
-
 module.exports.createTransaction = async serviceData => {
   console.log(serviceData)
   try {

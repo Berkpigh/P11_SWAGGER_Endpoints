@@ -101,6 +101,55 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  /user/account:
+    post:
+      tags:
+        - User Account Module
+      summary: Create account
+      description: API for account creation
+      parameters:
+        - in: body
+          name: body
+          description: Account creation Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Account'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Account created Successfully
+          schema:
+            $ref: '#/definitions/AccountResponse'
+        '400':
+          description: Invalid Field
+        '500':
+          description: Internal Server Error
+  /user/accounts:
+    get:
+      tags:
+        - User Account Module
+      summary: Get user's account
+      description: API for getting user's account
+      parameters:
+        - in: body
+          name: body
+          description: Account creation Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Account'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Account created Successfully
+          schema:
+            $ref: '#/definitions/AccountsResponse'
+        '400':
+          description: Invalid Field
+        '500':
+          description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -156,3 +205,45 @@ definitions:
     properties:
       userName:
         type: string
+  Account:
+    properties:
+          accountType:
+            type: number
+            description: Type of account
+          userId: 
+            type : string
+            description: user id
+          creationDate:
+            type: string
+            description: creation date
+          name: 
+            type: string
+            description: Account name
+          balance: 
+            type: number
+            description: Account balance
+  AccountResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: string
+          accountType:
+            type: number
+          userId: 
+            type : string
+          creationDate:
+            type: string
+          name: 
+            type: string
+          balance: 
+            type: number
+
+
+
