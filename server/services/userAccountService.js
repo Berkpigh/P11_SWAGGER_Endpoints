@@ -21,7 +21,7 @@ module.exports.createAccount = async serviceData => {
       console.error('Error in userService.js', error)
       throw new Error(error)
     }
-  }
+}
   
 module.exports.getUserAccounts = async serviceData => {
     try {
@@ -36,9 +36,9 @@ module.exports.getUserAccounts = async serviceData => {
       console.error('Error in userService.js', error)
       throw new Error(error)
     }
-  }
+}
   
-  module.exports.getUserAccountById = async serviceData => {
+module.exports.getUserAccountById = async serviceData => {
     try {
       console.log(serviceData)
       const userAccount = await Account.find(serviceData)
@@ -49,5 +49,5 @@ module.exports.getUserAccounts = async serviceData => {
       console.error('Error in userService.js', error)
       throw new Error(error)
     }
-  }
+}
   

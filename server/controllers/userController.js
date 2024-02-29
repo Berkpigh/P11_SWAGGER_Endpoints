@@ -71,39 +71,3 @@ module.exports.updateUserProfile = async (req, res) => {
 module.exports.signOut = (req, res) => {
   res.clearCookie('access_token').status(200).json('Signout success !')
 }
-
-
-module.exports.createTransaction = async (req, res) => {
-  let response = {}
-
-  try {
-    const responseFromService = await userService.createTransaction(req.body)
-    response.status = 200
-    response.message = 'Transaction successfully created'
-    response.body = responseFromService
-  } catch (error) {
-    console.error('Something went wrong in userController.js when creating transaction', error)
-    response.status = 400
-    response.message = error.message
-  }
-
-  return res.status(response.status).send(response)
-}
-
-module.exports.getOneAccountTransactions = async (req, res) => {
-  let response = {}
-
-  try {
-    const responseFromService = await userService.getOneAccountTransactions(req.params)
-    response.status = 200
-    response.message = 'Successfully got user account transactions'
-    response.body = responseFromService
-    console.log('response :',response)
-  } catch (error) {
-    console.log('Error in userController.js')
-    response.status = 400
-    response.message = error.message
-  }
-
-  return res.status(response.status).send(response)
-}

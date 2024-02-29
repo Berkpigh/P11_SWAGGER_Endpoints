@@ -21,8 +21,4 @@ router.put(
 
 router.get('/signout', userController.signOut)
 
-router.post('/transaction', userController.createTransaction)
-
-router.get('/accountbyid/:id/alltransactions', userController.getOneAccountTransactions)
-
 module.exports = router

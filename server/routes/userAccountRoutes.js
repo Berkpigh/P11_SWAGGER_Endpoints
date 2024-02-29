@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const userController = require('../controllers/userAccountController')
+const userAccountController = require('../controllers/userAccountController')
 //const tokenValidation = require('../middleware/tokenValidation')
 
-router.post('/account', userController.createAccount)
+router.post('/account', userAccountController.createAccount)
 
-router.get('/accounts', userController.getAccounts)
+router.get('/accounts', userAccountController.getAccounts)
 
-router.get('/account/:id', userController.getOneAccount)
+router.get('/account/:id', userAccountController.getOneAccount)
 
 module.exports = router

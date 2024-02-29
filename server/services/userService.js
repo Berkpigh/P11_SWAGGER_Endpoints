@@ -1,6 +1,4 @@
 const User = require('../database/models/userModel')
-const Account = require('../database/models/accountModel')
-const Transaction = require('../database/models/transactionModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -92,44 +90,6 @@ module.exports.updateUserProfile = async serviceData => {
     }
 
     return user.toObject()
-  } catch (error) {
-    console.error('Error in userService.js', error)
-    throw new Error(error)
-  }
-}
-
-module.exports.createTransaction = async serviceData => {
-  console.log(serviceData)
-  try {
-
-    const newTransaction = new Transaction({
-      accountId: serviceData.accountId,
-      creationDate: serviceData.creationDate,
-      description: serviceData.description,
-      amount: serviceData.amount,
-      balance: serviceData.balance,
-      transactionType: serviceData.transactionType,
-      transactionCategory: serviceData.transactionCategory,
-      notes: serviceData.notes,
-    })
-    console.log(newTransaction)
-    let result = await newTransaction.save()
-
-    return result
-  } catch (error) {
-    console.error('Error in userService.js', error)
-    throw new Error(error)
-  }
-}
-
-module.exports.getOneAccountTransactions = async serviceData => {
-  try {
-    accPar = {
-      "accountId": serviceData.id
-    }
-    console.log('accPar :', accPar)
-    const userAccountTransactions = await Transaction.find(accPar)
-    return userAccountTransactions
   } catch (error) {
     console.error('Error in userService.js', error)
     throw new Error(error)

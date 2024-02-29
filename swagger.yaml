@@ -178,6 +178,31 @@ paths:
           description: Invalid Field
         '500':
           description: Internal Server Error
+  /user/account/transaction:
+    post:
+      tags:
+        - User Account Transactions Module
+      summary: Create user's account transaction
+      description: API for creating user's account transaction
+      parameters:
+        - in: body
+          name: body
+          description: Transaction creation Payload
+          required: true
+          schema:
+            $ref: '#/definitions/UserAccountTransaction'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction created Successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Field
+        '500':
+          description: Internal Server Error
+
 
 securityDefinitions:
   Bearer:
@@ -304,8 +329,52 @@ definitions:
               type: string
             balance: 
               type: number
-
-
+  UserAccountTransaction:
+    properties:
+        accountId: 
+              type: string
+        creationDate:
+              type: string
+        description: 
+              type: string
+        amount: 
+              type: number
+        balance: 
+              type: number
+        transactionType: 
+              type: number
+        transactionCategory: 
+              type: number
+        notes: 
+              type: string
+  TransactionResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          _id: 
+                type: string
+          accountId: 
+                type: string
+          creationDate:
+                type: string
+          description: 
+                type: string
+          amount: 
+                type: number
+          balance: 
+                type: number
+          transactionType: 
+                type: number
+          transactionCategory: 
+                type: number
+          notes: 
+                type: string
 
 
 

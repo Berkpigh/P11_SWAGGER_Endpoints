@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Handle custom routes
 app.use('/api/v1/user', require('./routes/userRoutes'))
 app.use('/api/v1/user', require('./routes/userAccountRoutes'))
+app.use('/api/v1/user', require('./routes/userAccountTransactionsRoutes'))
 
 // API Documentation
 if (process.env.NODE_ENV !== 'production') {
