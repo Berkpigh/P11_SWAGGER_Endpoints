@@ -225,7 +225,7 @@ paths:
           description: Invalid Field
         '500':
           description: Internal Server Error
-  /user/account/{:acctid}/transaction/{:tranid}:
+  /user/account/transaction/{:id}:
     get:
       tags:
         - User Account Transactions Module
@@ -234,12 +234,7 @@ paths:
       parameters:
         - type: string
           in: path
-          name: acctid
-          description: User Account ID
-          required: true
-        - type: string
-          in: path
-          name: tranid
+          name: id
           description: Transaction ID
           required: true
       produces:

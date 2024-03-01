@@ -5,7 +5,7 @@ const userAccountController = require('../controllers/userAccountController')
 
 router.post('/account', userAccountController.createAccount)
 
-router.get('/accounts', userAccountController.getAccounts)
+router.get('/:id/accounts', userAccountController.getAccounts)
 
 router.get('/account/:id', userAccountController.getOneAccount)
 

@@ -28,7 +28,7 @@ module.exports.getUserAccounts = async serviceData => {
       //const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
       //const decodedJwtToken = jwt.decode(jwtToken)
       console.log('serviceData :',serviceData)
-      const userAccounts = await Account.find(serviceData)
+      const userAccounts = await Account.find({userId: serviceData})
       //console.log(userAccounts)
   
       return userAccounts
@@ -40,10 +40,9 @@ module.exports.getUserAccounts = async serviceData => {
   
 module.exports.getUserAccountById = async serviceData => {
     try {
-      console.log(serviceData)
-      const userAccount = await Account.find(serviceData)
+      //console.log(serviceData)
+      const userAccount = await Account.findOne({ _id: serviceData })
       //console.log(userAccount)
-  
       return userAccount
     } catch (error) {
       console.error('Error in userService.js', error)

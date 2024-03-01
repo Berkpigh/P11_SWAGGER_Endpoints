@@ -7,6 +7,6 @@ router.post('/account/transaction', userAcctTranCont.createTransaction)
 
 router.get('/account/:acctid/transactions', userAcctTranCont.getTransactions)
 
-router.get('/account/:acctid/transaction/:tranid', userAcctTranCont.getOneTransaction)
+router.get('/account/transaction/:id', userAcctTranCont.getOneTransaction)
 
 module.exports = router

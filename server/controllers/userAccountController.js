@@ -21,15 +21,14 @@ module.exports.createAccount = async (req, res) => {
     // if (req.userId !== req.params.userId) {
     //   return next(errorHandler(401, 'You can get only your accounts !'));
     // }
-  
     let response = {}
   
     try {
-      const responseFromService = await userAccountService.getUserAccounts(req.body)
+      const responseFromService = await userAccountService.getUserAccounts(req.params.id)
       response.status = 200
       response.message = 'Successfully got user accounts'
       response.body = responseFromService
-      console.log('response :',response)
+      //console.log('response :',response)
     } catch (error) {
       console.log('Error in userController.js')
       response.status = 400
@@ -48,12 +47,9 @@ module.exports.createAccount = async (req, res) => {
     // }
   
     let response = {}
-    accountParam = {
-      _id: req.params.id,
-      userId : req.body.userId
-    }
+
     try {
-      const responseFromService = await userAccountService.getUserAccountById(accountParam)
+      const responseFromService = await userAccountService.getUserAccountById(req.params.id)
       response.status = 200
       response.message = 'Successfully got user account'
       response.body = responseFromService

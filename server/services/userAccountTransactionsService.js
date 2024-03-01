@@ -39,7 +39,7 @@ module.exports.getOneAccountTransactions = async serviceData => {
 module.exports.getOneTransaction = async serviceData => {
   try {
     console.log('serviceData :',serviceData)
-    const userAccountTransaction = await Transaction.find(serviceData)
+    const userAccountTransaction = await Transaction.findOne({ _id: serviceData })
     return userAccountTransaction
   } catch (error) {
     console.error('Error in userService.js', error)

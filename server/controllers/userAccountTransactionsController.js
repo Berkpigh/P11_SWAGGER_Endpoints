@@ -38,24 +38,9 @@ module.exports.createTransaction = async (req, res) => {
     
   module.exports.getOneTransaction = async (req, res) => {
     let response = {}
-    const bracket1 = req.params.tranid.indexOf('{')
-    let paramTransaction = ''
-    if (bracket1 < 0) {
-      paramTransaction = {
-        _id: req.params.tranid,
-        accountId: req.params.acctid
-      }
-    } else {
-      console.log('req.params :',req.params)
-      const bracket2 = req.params.tranid.indexOf('}')
-      paramTransaction = {
-        _id: req.params.tranid.substring(bracket1,bracket2),
-        accountId: req.params.acctid.substring(bracket1,bracket2)
-      }
-    }
-    console.log('paramTransaction :', paramTransaction)
+    console.log('req.params :', req.params)
     try {
-      const responseFromService = await userAcctTranService.getOneTransaction(paramTransaction)
+      const responseFromService = await userAcctTranService.getOneTransaction(req.params.id)
       response.status = 200
       response.message = 'Successfully got user a particular account transaction'
       response.body = responseFromService
