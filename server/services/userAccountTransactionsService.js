@@ -5,7 +5,7 @@ module.exports.createTransaction = async serviceData => {
     try {
   
       const newTransaction = new Transaction({
-        accountId: serviceData.account,
+        accountId: serviceData.accountId,
         creationDate: serviceData.creationDate,
         description: serviceData.description,
         amount: serviceData.amount,

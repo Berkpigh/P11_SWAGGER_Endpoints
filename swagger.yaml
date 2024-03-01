@@ -125,19 +125,18 @@ paths:
           description: Invalid Field
         '500':
           description: Internal Server Error
-  /user/accounts:
+  /user/{:id}/accounts:
     get:
       tags:
         - User Account Module
       summary: Get user's account
       description: API for getting user's account
       parameters:
-        - in: body
-          name: body
-          description: Account creation Payload
+        - type: string
+          in: path
+          name: :id
+          description: User Account ID
           required: true
-          schema:
-            $ref: '#/definitions/UserAccount'
       produces:
         - application/json
       responses:
@@ -158,15 +157,9 @@ paths:
       parameters:
         - type: string
           in: path
-          name: id
+          name: :id
           description: User Account ID
           required: true
-        - in: body
-          name: body
-          description: Account creation Payload
-          required: true
-          schema:
-            $ref: '#/definitions/UserAccount'
       produces:
         - application/json
       responses:
@@ -343,11 +336,6 @@ definitions:
             type: string
           balance: 
             type: number
-  UserAccount:
-    properties:
-          userId: 
-            type : string
-            description: user id
   UserAccounts:
     type: object
     properties:
