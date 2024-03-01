@@ -46,3 +46,21 @@ module.exports.getOneTransaction = async serviceData => {
     throw new Error(error)
   }
 }
+
+module.exports.updateOneTransaction = async serviceData => {
+  try {
+    console.log('serviceData :',serviceData)
+    const userAccountTransaction = await Transaction.findOneAndUpdate(
+      { _id: serviceData.body._id },
+      {
+        transactionCategory: serviceData.body.transactionCategory,
+        notes: serviceData.body.notes
+      },
+      { new: true }
+    )
+    return userAccountTransaction.toObject()
+  } catch (error) {
+    console.error('Error in userService.js', error)
+    throw new Error(error)
+  }
+}

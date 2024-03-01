@@ -227,7 +227,7 @@ paths:
       parameters:
         - type: string
           in: path
-          name: id
+          name: :id
           description: Transaction ID
           required: true
       produces:
@@ -235,6 +235,30 @@ paths:
       responses:
         '200':
           description: Transaction got Successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Field
+        '500':
+          description: Internal Server Error
+  /user/account/updatetransaction:
+    put:
+      tags:
+        - User Account Transactions Module
+      summary: Update one user account's particular transaction
+      description: API for updateing one user account's particular transaction
+      parameters:
+        - in: body
+          name: body
+          description: Transaction update Payload
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateTransaction'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction updated Successfully
           schema:
             $ref: '#/definitions/TransactionResponse'
         '400':
@@ -440,4 +464,11 @@ definitions:
                   type: number
             notes: 
                   type: string
-
+  UpdateTransaction:
+    properties:
+        _id: 
+              type: string
+        transactionCategory: 
+              type: number
+        notes: 
+              type: string

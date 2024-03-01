@@ -9,4 +9,6 @@ router.get('/account/:id/transactions', userAcctTranCont.getTransactions)
 
 router.get('/account/transaction/:id', userAcctTranCont.getOneTransaction)
 
+router.put('/account/updatetransaction', userAcctTranCont.updateOneTransaction)
+
 module.exports = router

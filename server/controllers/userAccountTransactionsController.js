@@ -53,3 +53,20 @@ module.exports.createTransaction = async (req, res) => {
   
     return res.status(response.status).send(response)
   }
+  module.exports.updateOneTransaction = async (req, res) => {
+    let response = {}
+    console.log('req :', req)
+    try {
+      const responseFromService = await userAcctTranService.updateOneTransaction(req)
+      response.status = 200
+      response.message = 'Successfully successfully updated transaction'
+      response.body = responseFromService
+      //console.log('response :',response)
+    } catch (error) {
+      console.log('Error in userController.js')
+      response.status = 400
+      response.message = error.message
+    }
+  
+    return res.status(response.status).send(response)
+  }  
