@@ -5,7 +5,7 @@ const userAcctTranCont = require('../controllers/userAccountTransactionsControll
 
 router.post('/account/transaction', userAcctTranCont.createTransaction)
 
-router.get('/account/:acctid/transactions', userAcctTranCont.getTransactions)
+router.get('/account/:id/transactions', userAcctTranCont.getTransactions)
 
 router.get('/account/transaction/:id', userAcctTranCont.getOneTransaction)
 

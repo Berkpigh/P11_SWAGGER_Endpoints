@@ -26,7 +26,7 @@ module.exports.createTransaction = async serviceData => {
 module.exports.getOneAccountTransactions = async serviceData => {
     try {
       const paramAccount = {
-        accountId: serviceData.acctid
+        accountId: serviceData.id
       }
       console.log('paramAccount :',paramAccount)
       const userAccountTransactions = await Transaction.find(paramAccount)
