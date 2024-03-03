@@ -27,11 +27,15 @@ const Header = () => {
                 <span className="mx-4 text-lg text-bold text-green-500 hover:underline">
                   {currentUser.body.userName}
                 </span>
-                <img className="" src={profileParams} alt="logo sign out" />
+                <img
+                  className="h-44px"
+                  src={profileParams}
+                  alt="logo sign out"
+                />
               </Link>
               <Link to="/signout" className="flex items-center mx-4">
                 <img
-                  className="w-8 h-8 inline"
+                  className="h-44px inline"
                   src={deconnexion}
                   alt="profil utilisateur"
                 />
