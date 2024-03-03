@@ -14,9 +14,9 @@ const Home = () => {
       {/* MAIN */}
       <div className="min-h-80vh">
         {/* Hero */}
-        <div className="min-h-55vh h-300px mdpb:h-400px bg-[0_-50px] mdpb:bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat relative">
+        <div className="z-0 min-h-55vh h-300px mdpb:h-400px bg-[0_-50px] mdpb:bg-[0_33%] bg-hero object-cover bg-cover bg-no-repeat relative">
           {/* Hero-content */}
-          <div className="relative mdpb:absolute inset-y-8 mdpb:top-[50px] mdpb:right-[50px] w-250px mdpb:w-364px mdpb:h-211px  p-8  text-left bg-white mx-auto mr-auto mdpb:m-8">
+          <div className="z-10 bg-fff relative mdpb:absolute inset-y-8 mdpb:top-[50px] mdpb:right-[50px] w-250px mdpb:w-364px mdpb:h-211px  p-2rem  text-left mx-auto mr-auto mdpb:m-8">
             {/* <h2 className="sr-only">Promoted Content</h2> */}
             <p className="font-bold text-[1rem] mdpb:text-[1.5rem] leading-tight m-0">
               No fees.

@@ -33,6 +33,7 @@ export default {
       '50px': '50px',
     },
     width: {
+      '30px': '30px',
       '100px': '100px',
       '200px': '200px',
       '220px': '220px',
@@ -42,10 +43,12 @@ export default {
     },
     height: {
       '211px': '211px',
+      '250px': '250px',
       '300px': '300px',
       '400px': '400px',
     },
     borderWidth: {
+      '1px': '1px',
       10: '10px',
     },
     borderColor: {
@@ -56,14 +59,19 @@ export default {
       grey: {
         ccc: '#ccc',
       },
+      zero: '#000',
     },
     backgroundColor: {
       dark: '#12002b',
       submit: '#00bc77',
       fff: '#fff',
+      zero: '#000',
     },
     padding: {
       '5px': '5px',
+      demirem: '0.5rem',
+      '2rem': '2rem',
+      '2.5rem': '2.5rem',
       left: {
         '500px': '500px',
       },

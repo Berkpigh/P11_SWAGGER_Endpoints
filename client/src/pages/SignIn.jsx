@@ -50,17 +50,17 @@ const SignIn = () => {
     //console.log('result', result)
     if (result.status === 200) {
       dispatch(signInSuccess(result))
-      navigate('/user')
+      navigate('/')
     } else {
       dispatch(signInFailure())
     }
   }
   return (
     <div className="min-h-80vh flex-1 bg-dark min-h-screen">
-      <div className="p-10">
-        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
+      <div className="p-2.5rem">
+        <div className="box-border border bg-fff w-300px  mx-auto p-2rem">
           <img
-            className="w-6 h-6 m-auto"
+            className="w-30px m-auto"
             src={userprofile}
             alt="profile utilisateur"
           />
@@ -71,7 +71,7 @@ const SignIn = () => {
                 Email
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -84,7 +84,7 @@ const SignIn = () => {
                 Password
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="password"
                 id="password"
                 placeholder="Email"
@@ -100,7 +100,7 @@ const SignIn = () => {
             </div>
             <button
               type="submit"
-              className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit"
+              className="text-grey-fff my-4 w-250px p-demirem text-lg font-bold bg-submit"
             >
               {loading ? 'Loading' : 'Sign In'}
             </button>
@@ -108,9 +108,9 @@ const SignIn = () => {
         </div>
       </div>
       <div className="flex justify-center m-auto mt-3">
-        <p className="text-white">Dont have an account ?</p>
+        <p className="text-grey-fff">Dont have an account ?</p>
         <Link to="/signup">
-          <span className="p-2 border text-lg font-bold bg-submit ml-2 text-white">
+          <span className="p-demirem border text-lg font-bold bg-submit ml-2 text-grey-fff">
             Sign Up
           </span>
         </Link>

@@ -15,17 +15,9 @@ const Header = () => {
       <nav className="ml-2 min-h-6vh max-h-10vh flex justify-between items-center mx-auto pt-1.5 pb-5">
         <Link to="/">
           {currentUser ? (
-            <img
-              className="max-w-full w-48"
-              src={bankLogo2}
-              alt="logo2 argentBankDB"
-            />
+            <img className="w-200px" src={bankLogo2} alt="logo2 argentBankDB" />
           ) : (
-            <img
-              className="max-w-full w-48"
-              src={bankLogo}
-              alt="logo argentBankDB"
-            />
+            <img className="w-200px" src={bankLogo} alt="logo argentBankDB" />
           )}
         </Link>
         <div className="flex items-center">
@@ -35,11 +27,7 @@ const Header = () => {
                 <span className="mx-4 text-lg text-bold text-green-500 hover:underline">
                   {currentUser.body.userName}
                 </span>
-                <img
-                  className="w-16 h-8 "
-                  src={profileParams}
-                  alt="logo sign out"
-                />
+                <img className="" src={profileParams} alt="logo sign out" />
               </Link>
               <Link to="/signout" className="flex items-center mx-4">
                 <img
@@ -52,7 +40,7 @@ const Header = () => {
           ) : (
             <Link to="/login" className="flex items-center">
               <img
-                className="w-6 h-6 "
+                className="w-30px"
                 src={userprofile}
                 alt="profile utilisateur"
               />
