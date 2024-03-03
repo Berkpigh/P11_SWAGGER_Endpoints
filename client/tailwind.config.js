@@ -16,6 +16,7 @@ export default {
       '0.9rem': '0.9rem',
       '1.1rem': '1.1rem',
       '1.2rem': '1.2rem',
+      '1.5rem': '1.5rem',
       '2em': '2em',
       '2.5rem': '2.5rem',
     },
@@ -33,17 +34,22 @@ export default {
       '50px': '50px',
     },
     width: {
+      '80pc': '80%',
       '30px': '30px',
+      '90px': '90px',
       '100px': '100px',
       '200px': '200px',
+      '211px': '211px',
       '220px': '220px',
       '250px': '250px',
       '300px': '300px',
+      '320px': '320px',
       '364px': '364px',
     },
     height: {
+      '40px': '40px',
       '44px': '44px',
-      '211px': '211px',
+      '150px': '150px',
       '250px': '250px',
       '300px': '300px',
       '400px': '400px',
@@ -67,10 +73,14 @@ export default {
       submit: '#00bc77',
       fff: '#fff',
       zero: '#000',
+      grey: '#D1D5DB',
     },
     padding: {
       '5px': '5px',
+      '10px': '10px',
+      '24px': '24px',
       demirem: '0.5rem',
+      '1rem': '1rem',
       '2rem': '2rem',
       '2.5rem': '2.5rem',
       left: {
@@ -91,10 +101,17 @@ export default {
       '10vh': '10vh',
       '80vh': '80vh',
     },
+    gap: {
+      demirem: '0.5rem',
+    },
     extend: {
       backgroundImage: {
         hero: "url('./src/assets/img/bank-tree.jpeg')",
       },
+      /*       gridAutoColumns: {
+        '1tierfr': 'minmax(0.3fr, 0.3fr)',
+        '2tierfr': 'minmax(0.7fr, 0.7fr)',
+      }, */
     },
   },
   plugins: [],

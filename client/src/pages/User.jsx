@@ -49,14 +49,14 @@ const User = () => {
       {defaultUserPage ? (
         <div className="min-h-80vh flex-1 bg-dark min-h-screen">
           <div className="text-grey-fff mb-8">
-            <h1 className="block text-2em font-bold p-4">
+            <h1 className="block text-2em font-bold p-1rem">
               Welcome back
               <br />
               {currentUser.body.userName} !
             </h1>
             <button
               type="button"
-              className="text-grey-fff my-4 w-auto p-2.5 text-lg font-bold bg-submit"
+              className="text-grey-fff my-4 w-100px p-10px text-lg font-bold bg-submit"
               onClick={handleUpdateProfile}
             >
               Edit Name
@@ -67,16 +67,20 @@ const User = () => {
       ) : (
         <div className="min-h-80vh flex-1 min-h-screen">
           <div className="">
-            <div className="w-80  mx-auto p-2">
-              <h1 className="my-4 text-2xl">Edit user info</h1>
+            <div className="w-320px  mx-auto p-2">
+              <h1 className="my-4 text-1.5rem">Edit user info</h1>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-demirem"
+              >
+                {/* <div className="flex items-center text-left"> */}
                 <div className="flex items-center text-left">
-                  <label className="font-bold mr-2" htmlFor="userName">
+                  <label className="w-90px font-bold" htmlFor="userName">
                     User name:
                   </label>
                   <input
-                    className=" rounded border-black border p-5px"
+                    className="rounded border-zero border-1px p-5px"
                     type="text"
                     placeholder={currentUser.body.userName}
                     id="userName"
@@ -84,11 +88,11 @@ const User = () => {
                   />
                 </div>
                 <div className="flex items-center text-left">
-                  <label className="font-bold mr-2" htmlFor="firstName">
+                  <label className="w-90px font-bold" htmlFor="firstName">
                     First name:
                   </label>
                   <input
-                    className="rounded border-black border p-5px bg-gray-200"
+                    className="rounded border-zero border-1px p-5px bg-grey"
                     type="text"
                     placeholder={currentUser.body.firstName}
                     id="firstName"
@@ -96,26 +100,26 @@ const User = () => {
                   />
                 </div>
                 <div className="flex items-center text-left">
-                  <label className="font-bold mr-2" htmlFor="lastName">
+                  <label className="w-90px font-bold" htmlFor="lastName">
                     Last name:
                   </label>
                   <input
-                    className="rounded border-black border p-5px  bg-gray-200"
+                    className="rounded border-zero border-1px p-5px bg-grey"
                     type="text"
                     placeholder={currentUser.body.lastName}
                     id="lastName"
                     readOnly
                   />
                 </div>
-                <div className="flex justify-between w-80">
+                <div className="flex justify-center w-80">
                   <button
                     type="submit"
-                    className="rounded text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit mr-1"
+                    className="rounded text-grey-fff my-4 w-100px p-demirem text-lg font-bold bg-submit mr-1"
                   >
                     {loading ? 'Loading...' : 'Save'}
                   </button>
                   <button
-                    className="ml-1 rounded text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit"
+                    className="ml-1 rounded text-grey-fff my-4 w-100px p-demirem text-lg font-bold bg-submit"
                     onClick={handleCancelUpdateProfile}
                   >
                     Cancel
