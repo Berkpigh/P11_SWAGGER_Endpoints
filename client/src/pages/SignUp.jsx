@@ -32,10 +32,10 @@ const SignUp = () => {
   }
   return (
     <div className="min-h-80vh flex-1 bg-dark min-h-screen">
-      <div className="p-10">
-        <div className="box-border border bg-white w-300px  mx-auto p-8 ">
+      <div className="p-2.5rem">
+        <div className="box-border border bg-fff w-300px  mx-auto p-2rem">
           <img
-            className="w-6 h-6 m-auto"
+            className="w-30px m-auto"
             src={userprofile}
             alt="profile utilisateur"
           />
@@ -47,7 +47,7 @@ const SignUp = () => {
                 Email
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -60,7 +60,7 @@ const SignUp = () => {
                 Password
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="text"
                 id="password"
                 placeholder="Password"
@@ -73,7 +73,7 @@ const SignUp = () => {
                 First Name
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="text"
                 id="firstName"
                 placeholder="First Name"
@@ -86,7 +86,7 @@ const SignUp = () => {
                 Last Name
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="text"
                 id="lastName"
                 placeholder="Last Name"
@@ -99,7 +99,7 @@ const SignUp = () => {
                 User Name
               </label>
               <input
-                className="border-black border p-5px"
+                className="border-zero border-1px p-5px"
                 type="text"
                 id="userName"
                 placeholder="User Name"
@@ -107,16 +107,16 @@ const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className="text-grey-fff my-4 w-full p-2 text-lg font-bold bg-submit">
+            <button className="text-grey-fff my-4 w-250px p-demirem text-lg font-bold bg-submit">
               {loading ? 'Loading...' : 'Sign Up'}
             </button>
           </form>
         </div>
       </div>
       <div className="flex justify-center m-auto mt-3">
-        <p className="text-white">Have an account ?</p>
+        <p className="text-grey-fff">Have an account ?</p>
         <Link to="/login">
-          <span className="p-2 border text-lg font-bold bg-submit ml-2 text-white">
+          <span className="p-demirem border text-lg font-bold bg-submit ml-2 text-grey-fff">
             Login
           </span>
         </Link>
